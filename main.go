@@ -2,27 +2,40 @@ package main
 
 import (
 	"fmt"
-	"math"
-	"pg3/st"
+	"runtime"
+	"sync"
 )
 
-type Person struct {
-	name string
-	age  uint
-}
+// type Person struct {
+// 	name string
+// 	age  uint
+// }
 
-func changePerson(person **Person) {
+// func changePerson(person **Person) {
 
-	*person = &Person{
-		name: "vasya",
-		age:  25,
-	}
-	fmt.Printf("change person 2: %+v\n", person)
+// 	*person = &Person{
+// 		name: "vasya",
+// 		age:  25,
+// 	}
+// 	fmt.Printf("change person 2: %+v\n", person)
 
-}
+// }
 
 func main() {
 
+	//go rutin
+	wg := sync.WaitGroup{}
+	runtime.GOMAXPROCS(1)
+	wg.Add(5)
+	for i := range []int{1, 2, 3, 4, 5} {
+		i := i
+		go func() {
+			defer wg.Done()
+			fmt.Println(i)
+		}()
+	}
+
+	wg.Wait()
 	// person := &Person{
 	// 	name: "Dm",
 	// 	age:  23,
@@ -32,10 +45,10 @@ func main() {
 
 	// changePerson(&person)
 	// fmt.Println(person.name)
-	fmt.Println(math.Log2(128 * 2))
-	list := []int{1, 3, 4, 5, 9}
-	fmt.Println(st.Bianary_search(list, 23))
-	fmt.Println(st.Bianary_search(list, 5))
+	// fmt.Println(math.Log2(128 * 2))
+	// list := []int{1, 3, 4, 5, 9}
+	// fmt.Println(st.Bianary_search(list, 23))
+	// fmt.Println(st.Bianary_search(list, 5))
 
 	// fmt.Println("max: ", Max(1, 5))
 
