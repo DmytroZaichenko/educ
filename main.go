@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"pg3/st"
 	"runtime"
 	"sync"
 )
@@ -36,6 +37,9 @@ func main() {
 	}
 
 	wg.Wait()
+
+	fmt.Println(st.Uint8FromInt(256))
+
 	// person := &Person{
 	// 	name: "Dm",
 	// 	age:  23,

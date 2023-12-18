@@ -2,6 +2,7 @@ package st
 
 import (
 	"fmt"
+	"math"
 
 	"golang.org/x/exp/constraints"
 )
@@ -82,4 +83,11 @@ func Bianary_search(list []int, item int) int {
 		}
 	}
 	return 0
+}
+
+func Uint8FromInt(x int) (uint8, error) {
+	if 0 <= x && x <= math.MaxUint8 {
+		return uint8(x), nil
+	}
+	return 0, fmt.Errorf("%d is out of range uint8 range", x)
 }
