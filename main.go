@@ -38,18 +38,8 @@ func main() {
 
 	wg.Wait()
 
-<<<<<<< HEAD
 	fmt.Println(st.Uint8FromInt(256))
 
-=======
-	x :=[3]int{1,2,3}
-	func(arr *[3]int){
-		(*arr)[0] = 7
-		fmt.Println(arr)
-	}(&x)
-
-	fmt.Println(x)
->>>>>>> 17c102d (q)
 	// person := &Person{
 	// 	name: "Dm",
 	// 	age:  23,
