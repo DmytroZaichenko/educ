@@ -26,20 +26,30 @@ func main() {
 
 	//go rutin
 	wg := sync.WaitGroup{}
-	runtime.GOMAXPROCS(1)
+	runtime.GOMAXPROCS(15)
 	wg.Add(5)
 	for i := range []int{1, 2, 3, 4, 5} {
-		i := i
-		go func() {
+		// i := i
+		go func(i int) {
 			defer wg.Done()
 			fmt.Println(i)
-		}()
+		}(i)
 	}
 
 	wg.Wait()
 
+<<<<<<< HEAD
 	fmt.Println(st.Uint8FromInt(256))
 
+=======
+	x :=[3]int{1,2,3}
+	func(arr *[3]int){
+		(*arr)[0] = 7
+		fmt.Println(arr)
+	}(&x)
+
+	fmt.Println(x)
+>>>>>>> 17c102d (q)
 	// person := &Person{
 	// 	name: "Dm",
 	// 	age:  23,
